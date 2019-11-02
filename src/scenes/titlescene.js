@@ -1,4 +1,5 @@
 import 'phaser';
+import createBackground from '../helpers/create-background';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
@@ -9,6 +10,9 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create() {
+    this.background = createBackground(this, {
+      background: 'background',
+    });
     const canvas = document.querySelector('canvas');
     this.logo = this.add.image((canvas.width / 2), (canvas.height / 2) - 50, 'logo');
     this.logo.setScale(0.75);
