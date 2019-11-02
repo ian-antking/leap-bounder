@@ -1,0 +1,12 @@
+{
+    "extends": [
+      "mcr-codes"
+    ],
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "globals": {
+        "Phaser": "readable"
+    }
+  }
