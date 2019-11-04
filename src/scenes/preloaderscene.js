@@ -80,11 +80,11 @@ export default class PreloaderScene extends Phaser.Scene {
     });
 
     this.timedEvent = this.time.delayedCall(1000, this.ready, [], this);
-    this.load.image('background', 'assets/background/parallax-space-backgound.png');
-    this.load.spritesheet('hero', 'assets/white.png', {
-      frameWidth: 16,
-      frameHeight: 16,
-    });
+    this.load.atlasXML('player', 'assets/spritesheet_players.png', 'assets/spritesheet_players.xml');
+    this.load.atlasXML('enemies', 'assets/spritesheet_enemies.png', 'assets/spritesheet_enemies.xml');
+    this.load.atlasXML('items', 'assets/spritesheet_items.png', 'assets/spritesheet_items.xml');
+    this.load.atlasXML('other', 'assets/spritesheet_other.png', 'assets/spritesheet_other.xml');
+    this.load.atlasXML('tiles', 'assets/spritesheet_tiles.png', 'assets/spritesheet_tiles.xml');
   }
 
   create() {
