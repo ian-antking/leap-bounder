@@ -1,5 +1,4 @@
 import 'phaser';
-import createBackground from '../helpers/create-background';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -7,8 +6,6 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create() {
-    this.background = createBackground(this, {
-      background: 'background',
-    });
+    this.player = this.add.sprite(10, 10, 'hero');
   }
 }

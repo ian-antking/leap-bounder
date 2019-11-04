@@ -1,5 +1,4 @@
 import 'phaser';
-import createBackground from '../helpers/create-background';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
@@ -10,15 +9,9 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create() {
-    this.background = createBackground(this, {
-      background: 'background',
-    });
-    const canvas = document.querySelector('canvas');
-    this.logo = this.add.image((canvas.width / 2), (canvas.height / 2) - 50, 'logo');
-    this.logo.setScale(0.75);
     const width = this.cameras.main.width;
     const height = this.cameras.main.height;
-    const titleText = this.make.text({
+    const instructionText = this.make.text({
       x: width / 2,
       y: height / 2 + 100,
       text: 'Press Spacebar',
@@ -27,6 +20,18 @@ export default class TitleScene extends Phaser.Scene {
         fill: '#ffffff',
       },
     });
+
+    const titleText = this.make.text({
+      x: width / 2,
+      y: height / 2,
+      text: 'Leap-Bounder',
+      style: {
+        font: '32px monospace',
+        fill: '#ffffff',
+      },
+    });
+
+    instructionText.setOrigin(0.5, 0.5);
     titleText.setOrigin(0.5, 0.5);
     this.spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
   }
