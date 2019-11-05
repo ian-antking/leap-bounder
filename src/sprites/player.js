@@ -3,8 +3,8 @@ import 'phaser';
 import GameSprite from './game-sprite';
 import createAnimations from '../helpers/create-animation';
 import playerAnimations from '../config/player-animations';
-// import createStateMachine from '../helpers/create-state-machine';
-// import playerStates from '../config/player-states';
+import createStateMachine from '../helpers/create-state-machine';
+import playerStates from '../config/player-states';
 
 class Player extends GameSprite {
   constructor(config) {
@@ -18,9 +18,9 @@ class Player extends GameSprite {
       attack: 1,
     };
     createAnimations(this, this.scene, playerAnimations);
-    // this.state = createStateMachine(this.scene, this, playerStates);
-    // this.state.setInitialState('idle');
-    this.anims.play('walk', true);
+    this.state = createStateMachine(this.scene, this, playerStates);
+    this.state.setInitialState('stand');
+    this.anims.play('stand', true);
     this.setOrigin(0.5, 0.5);
     this.body.setSize(null, null, true);
   }
@@ -97,7 +97,7 @@ class Player extends GameSprite {
   }
 
   update(controls) {
-    // this.anims.play(this.state.name, true);
+    this.anims.play(this.state.name, true);
     this.state.handleInput(controls);
   }
 }

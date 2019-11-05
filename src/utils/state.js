@@ -1,7 +1,7 @@
 class State {
-  constructor(name, prefab) {
+  constructor(name, sprite) {
     this.name = name;
-    this.prefab = prefab;
+    this.sprite = sprite;
     this.timers = {};
     this.listeners = {};
   }
@@ -21,7 +21,7 @@ class State {
   }
 
   setState(state) {
-    this.prefab.state.setState(state);
+    this.sprite.state.setState(state);
   }
 }
 
