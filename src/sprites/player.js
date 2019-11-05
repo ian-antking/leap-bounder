@@ -17,23 +17,11 @@ class Player extends GameSprite {
       jump: 500,
       attack: 1,
     };
-    this.scene.physics.add.collider(this.scene.groundLayer, this);
-    this.scene.physics.add.collider(this.scene.platformLayer, this);
-    this.hazardCollider = this.scene.physics.add.collider(
-      this, this.scene.hazardGroup,
-      (_, hazard) => {
-        if (this._detectValidAttack(hazard)) {
-          hazard.damage(this.stats.attack);
-        } else {
-          this.state.setState('hurt', { damage: hazard.stats.damage, direction: hazard.contactDirection });
-          hazard.attackReaction && hazard.attackReaction();
-        }
-      }
-    );
     createAnimations(this, this.scene, playerAnimations);
     // this.state = createStateMachine(this.scene, this, playerStates);
     // this.state.setInitialState('idle');
-    this.resetBody();
+    this.anims.play('walk', true);
+    this.body.setSize(null, null, true);
   }
 
   _detectValidAttack(target) {
@@ -105,12 +93,10 @@ class Player extends GameSprite {
   }
 
   resetBody() {
-    this.body.setSize(65, 90);
-    this.body.setOffset(14, 35);
   }
 
   update(controls) {
-    this.anims.play(this.state.name, true);
+    // this.anims.play(this.state.name, true);
     this.state.handleInput(controls);
   }
 }
