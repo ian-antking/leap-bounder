@@ -67,7 +67,7 @@ const playerAnimations = [
     name: 'walk',
     prefix: 'playerRed_walk',
     start: 1,
-    end: 5,
+    end: 3,
     frameRate: 10,
     repeat: -1,
   },

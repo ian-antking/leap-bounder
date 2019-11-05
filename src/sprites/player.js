@@ -21,6 +21,7 @@ class Player extends GameSprite {
     // this.state = createStateMachine(this.scene, this, playerStates);
     // this.state.setInitialState('idle');
     this.anims.play('walk', true);
+    this.setOrigin(0.5, 0.5);
     this.body.setSize(null, null, true);
   }
 
