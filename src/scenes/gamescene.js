@@ -8,17 +8,15 @@ export default class GameScene extends Phaser.Scene {
     this.commands = [];
   }
 
-  createKeyboardListener(keyName) {
+  createKeyboardListener(keyName, commandName = keyName) {
     const key = keyName.toUpperCase();
     this.input.keyboard.on(`keydown_${key}`, () => {
-      const command = new Command(`${keyName}Down`);
+      const command = new Command(`${commandName}Down`);
       this.commands.push(command);
-      console.log(this.commands);
     });
     this.input.keyboard.on(`keyup_${key}`, () => {
-      const command = new Command(`${keyName}Up`);
+      const command = new Command(`${commandName}Up`);
       this.commands.push(command);
-      console.log(this.commands);
     });
   }
 
@@ -28,6 +26,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.createKeyboardListener('left');
     this.createKeyboardListener('right');
+    this.createKeyboardListener('space', 'gravity');
 
 
     this.player = new Player({
@@ -36,5 +35,9 @@ export default class GameScene extends Phaser.Scene {
       x: 100,
       y: 100,
     });
+  }
+
+  update() {
+    this.player.update(this.commands.unshift());
   }
 }
