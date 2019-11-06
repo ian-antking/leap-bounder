@@ -6,13 +6,20 @@ class WalkState extends State {
   }
 
   enter(command) {
-    const direction = command.name.includes('left') ? 'left' : 'right';
-    this.sprite.move(direction);
+    this.direction = command.name.includes('left') ? 'left' : 'right';
+    this.sprite.move(this.direction);
   }
 
   execute(command) {
     const { name } = command;
-    return name === 'leftUp' || name === 'rightUp' ? 'stand' : this.name;
+
+    if (name.includes('Down')) {
+      this.direction = name.includes('left') ? 'left' : 'right';
+    }
+    console.log(this.direction);
+    this.sprite.move(this.direction);
+
+    return name === `${this.direction}Up` ? 'stand' : this.name;
   }
 }
 
