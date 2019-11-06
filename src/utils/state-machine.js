@@ -27,7 +27,7 @@ class StateMachine {
 
   handleInput(command) {
     if (command) {
-      this.updateState();
+      this.updateState(command);
     }
   }
 

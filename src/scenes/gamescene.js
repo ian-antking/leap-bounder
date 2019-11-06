@@ -38,6 +38,6 @@ export default class GameScene extends Phaser.Scene {
   }
 
   update() {
-    this.player.update(this.commands.unshift());
+    this.player.update(this.commands.shift());
   }
 }
