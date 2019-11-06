@@ -24,9 +24,12 @@ export default class GameScene extends Phaser.Scene {
     this.created = !this.created ? 1 : this.created += 1;
     this.cursorKeys = this.input.keyboard.createCursorKeys();
 
+    this.input.keyboard.on('keydown_' + 'SPACE', () => {
+      this.player.flipGravity();
+    });
+
     this.createKeyboardListener('left');
     this.createKeyboardListener('right');
-    this.createKeyboardListener('space', 'gravity');
 
 
     this.player = new Player({
@@ -35,6 +38,9 @@ export default class GameScene extends Phaser.Scene {
       x: 100,
       y: 100,
     });
+
+    // this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    this.cameras.main.startFollow(this.player);
   }
 
   update() {

@@ -7,7 +7,6 @@ class GameSprite extends Phaser.GameObjects.Sprite {
     this.spriteKey = config.key;
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);
-    this.body.setCollideWorldBounds(true);
     this.stats = {
       damage: 1,
       health: 1,

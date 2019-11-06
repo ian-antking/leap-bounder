@@ -1,5 +1,5 @@
 class Command {
-  constructor(name, properties) {
+  constructor(name = 'noChange', properties) {
     this.name = name;
     let property;
     for (property in properties) {

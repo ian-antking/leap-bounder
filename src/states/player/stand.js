@@ -10,8 +10,13 @@ class StandState extends State {
   }
 
   execute(command) {
-    const { name } = command;
-    return name === 'leftDown' || name === 'rightDown' ? 'walk' : this.name;
+    if (Math.abs(this.sprite.velocityY) > 0) {
+      return 'fall';
+    }
+    if (command) {
+      return command.name === 'leftDown' || command.name === 'rightDown' ? 'walk' : this.name;
+    }
+    return this.name;
   }
 }
 

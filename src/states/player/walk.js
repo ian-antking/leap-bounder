@@ -13,10 +13,14 @@ class WalkState extends State {
   execute(command) {
     const { name } = command;
 
+    if (Math.abs(this.sprite.velocityY) > 0) {
+      return 'fall';
+    }
+
     if (name.includes('Down')) {
       this.direction = name.includes('left') ? 'left' : 'right';
     }
-    console.log(this.direction);
+
     this.sprite.move(this.direction);
 
     return name === `${this.direction}Up` ? 'stand' : this.name;

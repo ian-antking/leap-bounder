@@ -21,20 +21,7 @@ class Player extends GameSprite {
     this.state = createStateMachine(this.scene, this, playerStates);
     this.state.setInitialState('stand');
     this.anims.play('stand', true);
-    this.setOrigin(0.5, 0.5);
     this.body.setSize(null, null, true);
-  }
-
-  _detectValidAttack(target) {
-    return this.attacking && this.facing === this.contactDirection && target.damage;
-  }
-
-  get attacking() {
-    return this.state.name === 'attack' || this.state.name === 'kick' || this.state.name === 'shove';
-  }
-
-  addKeyListener(key, condition, callback) {
-    this.scene.controls[key].once(condition, callback);
   }
 
   hurtBlink() {
@@ -49,17 +36,6 @@ class Player extends GameSprite {
         this.hazardCollider.active = true;
       },
     });
-  }
-
-  attack() {
-    if (this.facing === 'left') {
-      this.body.setSize(80, 90);
-      this.body.setOffset(0, 35);
-    } else {
-      this.body.setSize(80, 90);
-      this.body.setOffset(14, 35);
-    }
-    this.move(this.facing, 0.2);
   }
 
   damage(damage, attackDirection) {
@@ -80,11 +56,6 @@ class Player extends GameSprite {
     this.stats.health -= damage;
   }
 
-  duck() {
-    this.body.setSize(65, 70);
-    this.body.setOffset(14, 55);
-  }
-
   heal(health) {
     if ((this.stats.health + health) > this.stats.maxHealth) {
       this.stats.health = this.stats.maxHealth;
@@ -93,10 +64,14 @@ class Player extends GameSprite {
     }
   }
 
-  resetBody() {
+  flipGravity() {
+    if (this.velocityY === 0) {
+      this.scene.physics.world.gravity.y *= -1;
+    }
   }
 
   update(controls) {
+    this.flipY = this.scene.physics.world.gravity.y < 0;
     this.anims.play(this.state.name, true);
     this.state.handleInput(controls);
   }

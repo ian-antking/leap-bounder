@@ -1,3 +1,5 @@
+import Command from './command';
+
 class StateMachine {
   constructor(scene) {
     this.states = {};
@@ -25,13 +27,8 @@ class StateMachine {
     this.currentState.enter(null);
   }
 
-  handleInput(command) {
-    if (command) {
-      this.updateState(command);
-    }
-  }
-
-  updateState(command) {
+  handleInput(input) {
+    const command = input || new Command();
     const nextStateName = this.currentState.execute(command);
     if (nextStateName !== this.currentState.name) {
       this.currentState.exit();
