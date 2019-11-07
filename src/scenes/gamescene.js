@@ -21,8 +21,12 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create() {
-    this.created = !this.created ? 1 : this.created += 1;
-    this.cursorKeys = this.input.keyboard.createCursorKeys();
+    this.map = this.make.tilemap({ key: 'dev-map' });
+    this.mapTiles = this.map.addTilesetImage('tilesheet_complete');
+    this.groundLayer = this.map.createStaticLayer('ground', this.mapTiles)
+      .setCollisionByProperty({ collides: true });
+    this.waterLayer = this.map.createDynamicLayer('water', this.mapTiles)
+      .setDepth(5);
 
     this.input.keyboard.on('keydown_' + 'SPACE', () => {
       this.player.flipGravity();
@@ -35,12 +39,14 @@ export default class GameScene extends Phaser.Scene {
     this.player = new Player({
       scene: this,
       key: 'player',
-      x: 100,
-      y: 100,
+      x: 50,
+      y: 50,
     });
 
-    // this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
     this.cameras.main.startFollow(this.player);
+
+    this.physics.add.collider(this.player, this.groundLayer);
   }
 
   update() {

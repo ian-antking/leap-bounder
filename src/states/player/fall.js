@@ -6,8 +6,7 @@ class FallState extends State {
   }
 
   execute() {
-    console.log('falling');
-    return Math.abs(this.sprite.velocityY) === 0 ? 'stand' : this.name;
+    return this.sprite.onGround ? 'stand' : this.name;
   }
 }
 

@@ -18,17 +18,8 @@ class GameSprite extends Phaser.GameObjects.Sprite {
     return this.stats.health > 0;
   }
 
-  get blocked() {
-    if (this.body.blocked.up) {
-      return 'up';
-    }
-    if (this.body.blocked.left) {
-      return 'left';
-    }
-    if (this.body.blocked.right) {
-      return 'right';
-    }
-    return null;
+  get onGround() {
+    return this.body.blocked.down || this.body.blocked.up;
   }
 
   get contactDirection() {

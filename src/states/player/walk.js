@@ -12,10 +12,9 @@ class WalkState extends State {
 
   execute(command) {
     const { name } = command;
-
-    if (Math.abs(this.sprite.velocityY) > 0) {
-      return 'fall';
-    }
+    // if (!this.sprite.onGround) {
+    //   return 'fall';
+    // }
 
     if (name.includes('Down')) {
       this.direction = name.includes('left') ? 'left' : 'right';

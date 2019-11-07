@@ -68,8 +68,8 @@
 	<SubTexture name="playerRed_up2"	x="243"	y="95"	width="39"	height="46"/>
 	<SubTexture name="playerRed_up3"	x="0"	y="189"	width="56"	height="38"/>
 	<SubTexture name="playerRed_walk1"	x="206"	y="0"	width="39"	height="48"/>
-	<SubTexture name="playerRed_walk2"	x="206"	y="49"	width="39"	height="45"/>
-	<SubTexture name="playerRed_walk3"	x="243"	y="299"	width="39"	height="45"/>
+	<SubTexture name="playerRed_walk2"	x="206"	y="49"	width="39"	height="48"/>
+	<SubTexture name="playerRed_walk3"	x="243"	y="299"	width="39"	height="48"/>
 	<SubTexture name="playerRed_walk4"	x="65"	y="83"	width="49"	height="42"/>
 	<SubTexture name="playerRed_walk5"	x="0"	y="0"	width="64"	height="38"/>
 </TextureAtlas>

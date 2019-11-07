@@ -21,7 +21,8 @@ class Player extends GameSprite {
     this.state = createStateMachine(this.scene, this, playerStates);
     this.state.setInitialState('stand');
     this.anims.play('stand', true);
-    this.body.setSize(null, null, true);
+    this.body.setSize(39, 48, true);
+    this.body.setBounce(0);
   }
 
   hurtBlink() {
@@ -65,7 +66,7 @@ class Player extends GameSprite {
   }
 
   flipGravity() {
-    if (this.velocityY === 0) {
+    if (this.onGround) {
       this.scene.physics.world.gravity.y *= -1;
     }
   }
