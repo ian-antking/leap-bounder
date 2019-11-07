@@ -15,7 +15,7 @@ class GameSprite extends Phaser.GameObjects.Sprite {
   }
 
   get alive() {
-    return this.stats.health > 0;
+    return this.y < this.scene.map.heightInPixels && this.y > -200;
   }
 
   get onGround() {

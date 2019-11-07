@@ -50,6 +50,9 @@ export default class GameScene extends Phaser.Scene {
   }
 
   update() {
+    if (!this.player.alive) {
+      this.scene.restart();
+    }
     this.player.update(this.commands.shift());
   }
 }
