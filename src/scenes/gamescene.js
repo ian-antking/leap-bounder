@@ -22,6 +22,8 @@ export default class GameScene extends Phaser.Scene {
 
   create() {
     this.map = this.make.tilemap({ key: 'dev-map' });
+    this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
+    this.physics.world.setBoundsCollision(true, true, false, false);
     this.mapTiles = this.map.addTilesetImage('tilesheet_complete');
     this.groundLayer = this.map.createStaticLayer('ground', this.mapTiles)
       .setCollisionByProperty({ collides: true });

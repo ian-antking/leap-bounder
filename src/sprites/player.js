@@ -23,6 +23,7 @@ class Player extends GameSprite {
     this.anims.play('stand', true);
     this.body.setSize(39, 48, true);
     this.body.setBounce(0);
+    this.body.setCollideWorldBounds(true);
   }
 
   hurtBlink() {
