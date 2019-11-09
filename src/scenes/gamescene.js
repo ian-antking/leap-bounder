@@ -1,7 +1,6 @@
 import 'phaser';
 import Player from '../sprites/player';
 import Command from '../utils/command';
-import defaultConfig from '../config/default-data';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -54,12 +53,20 @@ export default class GameScene extends Phaser.Scene {
     this.groundLayer = this.map.createStaticLayer('ground', this.mapTiles)
       .setCollisionByProperty({ collides: true });
     this.spawnLayer = this.map.createDynamicLayer('spawn', this.mapTiles);
+    this.goalLayer = this.map.createDynamicLayer('goal', this.mapTiles);
     this.waterLayer = this.map.createDynamicLayer('water', this.mapTiles)
       .setDepth(5);
 
     this.findSpawn(this.spawnLayer);
 
     this.spawnLayer.setTileIndexCallback(190, (_, spawnTile) => this.setSpawn(spawnTile), this);
+
+    this.goalLayer.setTileIndexCallback(59, (_, goal) => {
+      this.goalLayer.removeTileAt(goal.x, goal.y);
+      this.scene.restart({
+        spawn: this.spawn,
+      });
+    }, this);
 
     this.input.keyboard.on('keydown_' + 'SPACE', () => {
       this.player.flipGravity();
@@ -80,6 +87,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.physics.add.collider(this.player, this.groundLayer);
     this.physics.add.overlap(this.player, this.spawnLayer);
+    this.physics.add.overlap(this.player, this.goalLayer);
   }
 
   update() {
