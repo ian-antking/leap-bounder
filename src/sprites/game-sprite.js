@@ -8,8 +8,6 @@ class GameSprite extends Phaser.GameObjects.Sprite {
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);
     this.stats = {
-      damage: 1,
-      health: 1,
       speed: 100,
     };
   }
@@ -54,12 +52,6 @@ class GameSprite extends Phaser.GameObjects.Sprite {
 
   addDelayedCall(time, callback, args, context) {
     return this.scene.time.delayedCall(time, callback, args, context);
-  }
-
-  jump() {
-    if (this.body.blocked.down) {
-      this.body.setVelocityY(this.stats.jump * -1);
-    }
   }
 
   move(direction, factor = 1) {

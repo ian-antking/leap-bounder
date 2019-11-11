@@ -37,6 +37,12 @@ export default class GameScene extends Phaser.Scene {
     this.setSpawn(spawn);
   }
 
+  gameOver() {
+    this.scene.restart({
+      spawn: this.spawn,
+    });
+  }
+
   setSpawn(spawnTile) {
     this.spawn = {
       x: spawnTile.pixelX,
@@ -56,6 +62,19 @@ export default class GameScene extends Phaser.Scene {
     this.goalLayer = this.map.createDynamicLayer('goal', this.mapTiles);
     this.waterLayer = this.map.createDynamicLayer('water', this.mapTiles)
       .setDepth(5);
+
+    this.spikes = this.physics.add.group({
+      allowGravity: false,
+      immovable: true,
+    });
+
+    const spikeObjects = this.map.getObjectLayer('spike').objects;
+    spikeObjects.forEach(spikeObject => {
+      const spike = this.spikes.create(spikeObject.x, spikeObject.y - spikeObject.height, 'tilesheet_complete', 211)
+        .setOrigin(0, 0);
+      spike.flipY = spikeObject.flippedVertical;
+      spike.body.setSize(64, 32, true).setOffset(0, spike.flipY ? 0 : 32);
+    });
 
     this.findSpawn(this.spawnLayer);
 
@@ -86,15 +105,16 @@ export default class GameScene extends Phaser.Scene {
     this.cameras.main.startFollow(this.player);
 
     this.physics.add.collider(this.player, this.groundLayer);
+    this.physics.add.overlap(this.player, this.spikes, () => {
+      this.gameOver();
+    });
     this.physics.add.overlap(this.player, this.spawnLayer);
     this.physics.add.overlap(this.player, this.goalLayer);
   }
 
   update() {
     if (!this.player.alive) {
-      this.scene.restart({
-        spawn: this.spawn,
-      });
+      this.gameOver();
     }
     this.player.update(this.commands.shift());
   }

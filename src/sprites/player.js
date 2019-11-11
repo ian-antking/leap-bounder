@@ -10,12 +10,7 @@ class Player extends GameSprite {
   constructor(config) {
     super(config);
     this.stats = {
-      HEART_VALUE: 2,
-      maxHealth: 6,
-      health: 6,
       speed: 200,
-      jump: 500,
-      attack: 1,
     };
     createAnimations(this, this.scene, playerAnimations);
     this.state = createStateMachine(this.scene, this, playerStates);
@@ -24,46 +19,6 @@ class Player extends GameSprite {
     this.body.setSize(39, 48, true);
     this.body.setBounce(0);
     this.body.setCollideWorldBounds(true);
-  }
-
-  hurtBlink() {
-    this.setAlpha(0);
-    this.scene.tweens.add({
-      targets: this,
-      alpha: 1,
-      duration: 100,
-      ease: 'Linear',
-      repeat: 15,
-      onComplete: () => {
-        this.hazardCollider.active = true;
-      },
-    });
-  }
-
-  damage(damage, attackDirection) {
-    this.hazardCollider.active = false;
-    this.hurtBlink();
-    if (attackDirection === 'up') {
-      this.body.setVelocityY(damage * -100);
-    } else {
-      switch (attackDirection) {
-        case 'left':
-          this.body.setVelocityX(damage * -200);
-          break;
-        case 'right':
-          this.body.setVelocityX(damage * 200);
-          break;
-      }
-    }
-    this.stats.health -= damage;
-  }
-
-  heal(health) {
-    if ((this.stats.health + health) > this.stats.maxHealth) {
-      this.stats.health = this.stats.maxHealth;
-    } else {
-      this.stats.health += health;
-    }
   }
 
   flipGravity() {
