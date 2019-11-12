@@ -53,12 +53,16 @@ export default class GameScene extends Phaser.Scene {
 
   create() {
     this.map = this.make.tilemap({ key: 'dev-map' });
-    this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-    this.physics.world.setBoundsCollision(true, true, false, false);
+    this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels)
+      .setBoundsCollision(true, true, false, false);
+
     this.mapTiles = this.map.addTilesetImage('tilesheet_complete');
     this.groundLayer = this.map.createStaticLayer('ground', this.mapTiles)
       .setCollisionByProperty({ collides: true });
-    this.spawnLayer = this.map.createDynamicLayer('spawn', this.mapTiles);
+
+    this.spawnLayer = this.map.createDynamicLayer('spawn', this.mapTiles)
+      .setTileIndexCallback(190, (_, spawnTile) => this.setSpawn(spawnTile), this);
+
     this.goalLayer = this.map.createDynamicLayer('goal', this.mapTiles);
     this.waterLayer = this.map.createDynamicLayer('water', this.mapTiles)
       .setDepth(5);
@@ -68,17 +72,24 @@ export default class GameScene extends Phaser.Scene {
       immovable: true,
     });
 
-    const spikeObjects = this.map.getObjectLayer('spike').objects;
-    spikeObjects.forEach(spikeObject => {
+    this.mines = this.physics.add.group({
+      allowGravity: false,
+      immovable: true,
+    });
+
+    this.map.getObjectLayer('spike').objects.forEach(spikeObject => {
       const spike = this.spikes.create(spikeObject.x, spikeObject.y - spikeObject.height, 'tilesheet_complete', 211)
         .setOrigin(0, 0);
       spike.flipY = spikeObject.flippedVertical;
       spike.body.setSize(64, 32, true).setOffset(0, spike.flipY ? 0 : 32);
     });
 
-    this.findSpawn(this.spawnLayer);
+    this.map.getObjectLayer('mine').objects.forEach(mineObject => {
+      this.mines.create(mineObject.x + 32, mineObject.y - 32, 'enemies', 0)
+        .setOrigin(0.5, 0.5);
+    });
 
-    this.spawnLayer.setTileIndexCallback(190, (_, spawnTile) => this.setSpawn(spawnTile), this);
+    this.findSpawn(this.spawnLayer);
 
     this.goalLayer.setTileIndexCallback(59, (_, goal) => {
       this.goalLayer.removeTileAt(goal.x, goal.y);
@@ -106,6 +117,9 @@ export default class GameScene extends Phaser.Scene {
 
     this.physics.add.collider(this.player, this.groundLayer);
     this.physics.add.overlap(this.player, this.spikes, () => {
+      this.gameOver();
+    });
+    this.physics.add.overlap(this.player, this.mines, () => {
       this.gameOver();
     });
     this.physics.add.overlap(this.player, this.spawnLayer);

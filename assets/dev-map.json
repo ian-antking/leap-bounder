@@ -102,6 +102,53 @@
         }, 
         {
          "draworder":"topdown",
+         "id":18,
+         "name":"mine",
+         "objects":[
+                {
+                 "gid":149,
+                 "height":64,
+                 "id":12,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"vertical",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":512,
+                 "y":320
+                }, 
+                {
+                 "gid":149,
+                 "height":64,
+                 "id":13,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"vertical",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":448,
+                 "y":256
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":17,
          "name":"sign",
          "objects":[
@@ -147,8 +194,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":18,
- "nextobjectid":12,
+ "nextlayerid":19,
+ "nextobjectid":14,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",
