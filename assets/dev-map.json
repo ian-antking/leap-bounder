@@ -112,9 +112,14 @@
                  "name":"",
                  "properties":[
                         {
-                         "name":"vertical",
-                         "type":"bool",
-                         "value":false
+                         "name":"velocityX",
+                         "type":"int",
+                         "value":100
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"",
@@ -130,9 +135,14 @@
                  "name":"",
                  "properties":[
                         {
-                         "name":"vertical",
-                         "type":"bool",
-                         "value":true
+                         "name":"velocityX",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"int",
+                         "value":100
                         }],
                  "rotation":0,
                  "type":"",

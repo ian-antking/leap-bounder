@@ -89,8 +89,25 @@ export default class GameScene extends Phaser.Scene {
     });
 
     this.map.getObjectLayer('mine').objects.forEach(mineObject => {
-      this.mines.create(mineObject.x + 32, mineObject.y - 32, 'enemies', 0)
-        .setOrigin(0.5, 0.5);
+      mineObject.properties.forEach(property => {
+        mineObject[property.name] = property.value;
+      });
+      this.mines.create(mineObject.x + 32, mineObject.y - 32, 'enemies')
+        .setOrigin(0.5, 0.5)
+        .body.setVelocity(mineObject.velocityX, mineObject.velocityY)
+        .setSize(48, 48, true);
+
+      this.anims.create({
+        key: 'mine-float',
+        frames: this.anims.generateFrameNames('enemies', {
+          prefix: 'enemyFloating_',
+          start: 1,
+          end: 1,
+        }),
+        repeat: -1,
+        frameRate: 3,
+      });
+      this.mines.playAnimation('mine-float');
     });
 
     this.findSpawn(this.spawnLayer);
