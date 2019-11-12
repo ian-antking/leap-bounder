@@ -6,6 +6,10 @@ export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
     this.commands = [];
+    this.level = 0;
+    this.levels = [
+      'dev-map',
+    ];
   }
 
   init(data) {
@@ -52,7 +56,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create() {
-    this.map = this.make.tilemap({ key: 'dev-map' });
+    this.map = this.make.tilemap({ key: this.levels[this.level % this.levels.length] });
     this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels)
       .setBoundsCollision(true, true, false, false);
 
@@ -94,7 +98,7 @@ export default class GameScene extends Phaser.Scene {
     this.goalLayer.setTileIndexCallback(59, (_, goal) => {
       this.goalLayer.removeTileAt(goal.x, goal.y);
       this.scene.restart({
-        spawn: this.spawn,
+        level: this.level += 1,
       });
     }, this);
 
