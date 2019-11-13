@@ -103,7 +103,7 @@ export default class GameScene extends Phaser.Scene {
         x: mineObject.x + 32,
         y: mineObject.y - 32,
         stats: stats,
-      })
+      });
 
       this.mines.add(mine);
       mine.body.setCollideWorldBounds(true);

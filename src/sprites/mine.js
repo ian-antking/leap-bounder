@@ -9,9 +9,8 @@ class Mine extends GameSprite {
   }
 
   update() {
-    console.log(this.body.blocked.none);
-    if (this.touching) {
-      this.body.setVelocity(this.stats.velocityX * -1, this.stats.velocityY * -1);
+    if (!this.body.blocked.none) {
+      this.body.setVelocity(this.stats.velocityX *= -1, this.stats.velocityY *= -1);
     }
   }
 }
