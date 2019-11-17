@@ -92,6 +92,7 @@ export default class GameScene extends Phaser.Scene {
       const sign = this.signs.create(signObject.x, signObject.y - signObject.height, 'tilesheet_complete', 263)
         .setOrigin(0, 0);
       sign.flipY = signObject.flippedVertical;
+      sign.body.setSize(32, 32, true);
     });
 
     this.map.getObjectLayer('spike').objects.forEach(spikeObject => {
