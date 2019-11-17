@@ -93,6 +93,10 @@ export default class GameScene extends Phaser.Scene {
         .setOrigin(0, 0);
       sign.flipY = signObject.flippedVertical;
       sign.body.setSize(32, 32, true);
+
+      signObject.properties.forEach(property => {
+        sign[property.name] = property.value;
+      });
     });
 
     this.map.getObjectLayer('spike').objects.forEach(spikeObject => {
@@ -158,6 +162,9 @@ export default class GameScene extends Phaser.Scene {
     });
     this.physics.add.overlap(this.player, this.spawnLayer);
     this.physics.add.overlap(this.player, this.goalLayer);
+    this.physics.add.overlap(this.player, this.signs, (_, sign) => {
+      console.log(sign.message);
+    })
   }
 
   update() {
