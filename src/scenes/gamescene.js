@@ -72,6 +72,11 @@ export default class GameScene extends Phaser.Scene {
     this.waterLayer = this.map.createDynamicLayer('water', this.mapTiles)
       .setDepth(5);
 
+    this.signs = this.physics.add.group({
+      allowGravity: false,
+      immovable: true,
+    });
+
     this.spikes = this.physics.add.group({
       allowGravity: false,
       immovable: true,
@@ -81,6 +86,12 @@ export default class GameScene extends Phaser.Scene {
     this.mines = this.physics.add.group({
       allowGravity: false,
       immovable: true,
+    });
+
+    this.map.getObjectLayer('sign').objects.forEach(signObject => {
+      const sign = this.signs.create(signObject.x, signObject.y - signObject.height, 'tilesheet_complete', 263)
+        .setOrigin(0, 0);
+      sign.flipY = signObject.flippedVertical;
     });
 
     this.map.getObjectLayer('spike').objects.forEach(spikeObject => {
