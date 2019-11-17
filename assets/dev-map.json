@@ -171,7 +171,7 @@
                         {
                          "name":"message",
                          "type":"string",
-                         "value":"Press the space bar to reverse gravity."
+                         "value":"Press [SPACE] to reverse gravity."
                         }],
                  "rotation":0,
                  "type":"",

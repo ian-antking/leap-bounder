@@ -163,8 +163,8 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.spawnLayer);
     this.physics.add.overlap(this.player, this.goalLayer);
     this.physics.add.overlap(this.player, this.signs, (_, sign) => {
-      console.log(sign.message);
-    })
+      this.add.text(sign.x, sign.y - 20, sign.message);
+    });
   }
 
   update() {
