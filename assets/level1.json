@@ -1,10 +1,10 @@
-{ "height":9,
+{ "height":8,
  "infinite":false,
  "layers":[
         {
-         "data":"AAAAAAAAAABGAADARQAAQEUAAEBFAABARQAAQEUAAEBFAABARAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAATAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABFAAAARQAAAGEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwEAAAAAAAAAAAAAAAAAAAAAAAADAQAAAAAAAAAAAAAAAAAARQAAAEUAAABFAAAARgAAAAAAAAAAAAAAAAAAAAAAAABEAAAARQAAAEUAAABFAAAAQwAAAEMAAABDAAAAQwAAAAAAAAAAAAAAAAAAAAAAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAAAAAAAAAAAAAAAAAAAAAABDAAAAQwAAAEMAAABDAAAA",
+         "data":"AAAAAAAAAAAAAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARgAAwEUAAMBFAADARQAAwEUAAMBEAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARQAAAEUAAABFAAAARgAAAAAAAAAAAAAAAAAAAAAAAABEAAAARQAAAEUAAABFAAAAQwAAAEMAAABDAAAAQwAAAAAAAAAAAAAAAAAAAAAAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAAAAAAAAAAAAAAAAAAAAAABDAAAAQwAAAEMAAABDAAAA",
          "encoding":"base64",
-         "height":9,
+         "height":8,
          "id":1,
          "name":"ground",
          "opacity":1,
@@ -15,36 +15,10 @@
          "y":0
         }, 
         {
-         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOkAAADpAAAA6QAAAOkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD\/AAAA\/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAA",
+         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
          "encoding":"base64",
-         "height":9,
-         "id":8,
-         "name":"water",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":12,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-         "encoding":"base64",
-         "height":9,
-         "id":9,
-         "name":"goal",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":12,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-         "encoding":"base64",
-         "height":9,
-         "id":13,
+         "height":8,
+         "id":2,
          "name":"spawn",
          "opacity":1,
          "type":"tilelayer",
@@ -54,149 +28,40 @@
          "y":0
         }, 
         {
-         "draworder":"topdown",
-         "id":15,
-         "name":"spike",
-         "objects":[
-                {
-                 "gid":1073742036,
-                 "height":64,
-                 "id":5,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":320,
-                 "y":128
-                }, 
-                {
-                 "gid":1073742036,
-                 "height":64,
-                 "id":6,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":384,
-                 "y":128
-                }, 
-                {
-                 "gid":212,
-                 "height":64,
-                 "id":11,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":704,
-                 "y":384
-                }],
+         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABNAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATAAAADsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "encoding":"base64",
+         "height":8,
+         "id":3,
+         "name":"goal",
          "opacity":1,
-         "type":"objectgroup",
+         "type":"tilelayer",
          "visible":true,
+         "width":12,
          "x":0,
          "y":0
         }, 
         {
          "draworder":"topdown",
-         "id":18,
-         "name":"mine",
-         "objects":[
-                {
-                 "gid":149,
-                 "height":64,
-                 "id":12,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"velocityX",
-                         "type":"int",
-                         "value":100
-                        }, 
-                        {
-                         "name":"velocityY",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":512,
-                 "y":320
-                }, 
-                {
-                 "gid":149,
-                 "height":64,
-                 "id":13,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"velocityX",
-                         "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"velocityY",
-                         "type":"int",
-                         "value":100
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":448,
-                 "y":128
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":17,
+         "id":4,
          "name":"sign",
          "objects":[
                 {
-                 "gid":1073742066,
-                 "height":64,
-                 "id":9,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"message",
-                         "type":"string",
-                         "value":"Watch out for spikes!"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":256,
-                 "y":128
-                }, 
-                {
                  "gid":242,
                  "height":64,
-                 "id":14,
+                 "id":1,
                  "name":"",
                  "properties":[
                         {
                          "name":"message",
                          "type":"string",
-                         "value":"Use [LEFT] and [RIGHT] to move.\nPress [SPACE] to reverse gravity."
+                         "value":"Press [SPACE] to reverse gravity."
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":0,
-                 "y":384
+                 "x":192,
+                 "y":320
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -204,8 +69,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":19,
- "nextobjectid":15,
+ "nextlayerid":5,
+ "nextobjectid":2,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",

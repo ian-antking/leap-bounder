@@ -10,6 +10,7 @@ export default class GameScene extends Phaser.Scene {
     this.level = 0;
     this.levels = [
       'dev-map',
+      'level1',
     ];
   }
 
@@ -69,8 +70,6 @@ export default class GameScene extends Phaser.Scene {
       .setTileIndexCallback(190, (_, spawnTile) => this.setSpawn(spawnTile), this);
 
     this.goalLayer = this.map.createDynamicLayer('goal', this.mapTiles);
-    this.waterLayer = this.map.createDynamicLayer('water', this.mapTiles)
-      .setDepth(5);
 
     this.signs = this.physics.add.group({
       allowGravity: false,
@@ -88,7 +87,15 @@ export default class GameScene extends Phaser.Scene {
       immovable: true,
     });
 
-    this.map.getObjectLayer('sign').objects.forEach(signObject => {
+    const signLayer = this.map.getObjectLayer('sign');
+    const spikeLayer = this.map.getObjectLayer('spike');
+    const mineLayer = this.map.getObjectLayer('mine');
+
+    const signObjects = signLayer ? signLayer.objects : [];
+    const spikeObjects = spikeLayer ? spikeLayer.objects : [];
+    const mineObjects = mineLayer ? mineLayer.objects : [];
+
+    signObjects.forEach(signObject => {
       const sign = this.signs.create(signObject.x, signObject.y - signObject.height, 'tilesheet_complete', 263)
         .setOrigin(0, 0);
       sign.flipY = signObject.flippedVertical;
@@ -99,14 +106,14 @@ export default class GameScene extends Phaser.Scene {
       });
     });
 
-    this.map.getObjectLayer('spike').objects.forEach(spikeObject => {
+    spikeObjects.forEach(spikeObject => {
       const spike = this.spikes.create(spikeObject.x, spikeObject.y - spikeObject.height, 'tilesheet_complete', 211)
         .setOrigin(0, 0);
       spike.flipY = spikeObject.flippedVertical;
       spike.body.setSize(64, 32, true).setOffset(0, spike.flipY ? 0 : 32);
     });
 
-    this.map.getObjectLayer('mine').objects.forEach(mineObject => {
+    mineObjects.forEach(mineObject => {
       const stats = {};
 
       mineObject.properties.forEach(property => {
