@@ -44,6 +44,8 @@ export default class GameScene extends Phaser.Scene {
   }
 
   gameOver() {
+    this.player.body.setVelocityY((this.physics.world.gravity.y * -1) / 2);
+    this.physics.world.colliders.destroy();
     this.time.delayedCall(250, () => {
       this.cameras.main.fade(250);
     }, [], this);
