@@ -44,9 +44,15 @@ export default class GameScene extends Phaser.Scene {
   }
 
   gameOver() {
-    this.scene.restart({
-      spawn: this.spawn,
-    });
+    this.time.delayedCall(250, () => {
+      this.cameras.main.fade(250);
+    }, [], this);
+
+    this.time.delayedCall(500, () => {
+      this.scene.restart({
+        spawn: this.spawn,
+      });
+    }, [], this);
   }
 
   setSpawn(spawnTile) {
