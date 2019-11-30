@@ -88,6 +88,8 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.tilemapTiledJSON('dev-map', 'assets/dev-map.json');
     this.load.tilemapTiledJSON('level0', 'assets/level0.json');
     this.load.tilemapTiledJSON('level1', 'assets/level1.json');
+    this.load.tilemapTiledJSON('level2', 'assets/level2.json');
+    this.load.tilemapTiledJSON('level3', 'assets/level3.json');
   }
 
   create() {

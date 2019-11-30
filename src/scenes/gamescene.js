@@ -11,6 +11,8 @@ export default class GameScene extends Phaser.Scene {
     this.levels = [
       'level0',
       'level1',
+      'level2',
+      'level3',
     ];
   }
 

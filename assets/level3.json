@@ -2,7 +2,7 @@
  "infinite":false,
  "layers":[
         {
-         "data":"RQAAwEUAAMBFAADAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAARQAAwEUAAMBFAADAAAAAAAAAAABOAADARgAAwEUAAMBFAADARQAAwEUAAMBEAADAAAAAAAAAAAA2AADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARQAAAEUAAABFAAAARgAAAAAAAAAAAAAAAAAAADgAAABEAAAARQAAAEUAAABFAAAAQwAAAEMAAABDAAAAQwAAAEUAAABFAAAARQAAAEUAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAA",
+         "data":"QwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAARQAAwEUAAMBFAADARQAAwEUAAMBFAADARQAAwEUAAMBFAADARQAAwEUAAMBFAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAQAAAAAAAAAAAAAAAAAARQAAAEUAAABFAAAARQAAAEUAAABFAAAARQAAAEUAAABGAAAAAAAAAAAAAAAAAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAAAAAAAAAAAAAAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAARQAAAEUAAABFAAAA",
          "encoding":"base64",
          "height":8,
          "id":1,
@@ -28,7 +28,7 @@
          "y":0
         }, 
         {
-         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABNAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABNAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
          "encoding":"base64",
          "height":8,
          "id":3,
@@ -54,7 +54,7 @@
                         {
                          "name":"message",
                          "type":"string",
-                         "value":"Press [SPACE] to reverse gravity."
+                         "value":"Watch out for those guys!"
                         }],
                  "rotation":0,
                  "type":"",
@@ -68,9 +68,89 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":7,
+         "name":"mine",
+         "objects":[
+                {
+                 "gid":60,
+                 "height":64,
+                 "id":8,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"velocityX",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"int",
+                         "value":100
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":256,
+                 "y":320
+                }, 
+                {
+                 "gid":60,
+                 "height":64,
+                 "id":10,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"velocityX",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"int",
+                         "value":100
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":384,
+                 "y":192
+                }, 
+                {
+                 "gid":60,
+                 "height":64,
+                 "id":11,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"velocityX",
+                         "type":"int",
+                         "value":100
+                        }, 
+                        {
+                         "name":"velocityY",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":704,
+                 "y":384
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":5,
- "nextobjectid":2,
+ "nextlayerid":8,
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",
