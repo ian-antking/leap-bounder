@@ -40,8 +40,8 @@ export default class GameScene extends Phaser.Scene {
     const spawn = this.data.spawn ? (
       layer.getTileAtWorldXY(this.data.spawn.x, this.data.spawn.y)
     ) : (
-      layer.findByIndex(189)
-    );
+        layer.findByIndex(189)
+      );
     this.setSpawn(spawn);
   }
 
@@ -147,10 +147,17 @@ export default class GameScene extends Phaser.Scene {
 
     this.goalLayer.setTileIndexCallback(59, (_, goal) => {
       this.goalLayer.removeTileAt(goal.x, goal.y);
-      this.scene.restart({
-        level: this.level += 1,
-      });
-    }, this);
+
+      this.time.delayedCall(250, () => {
+        this.cameras.main.fade(250);
+      }, [], this);
+
+      this.time.delayedCall(500, () => {
+        this.scene.restart({
+          level: this.level += 1,
+        });
+      }, this);
+    }, [], this);
 
     this.input.keyboard.on('keydown_' + 'SPACE', () => {
       this.player.flipGravity();
@@ -167,7 +174,7 @@ export default class GameScene extends Phaser.Scene {
     });
 
     this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-    this.cameras.main.startFollow(this.player);
+    this.cameras.main.startFollow(this.player).setFollowOffset(0, 100);
 
     this.physics.add.collider(this.player, this.groundLayer);
     this.physics.add.collider(this.mines, this.groundLayer);
