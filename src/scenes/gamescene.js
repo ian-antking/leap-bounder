@@ -13,6 +13,7 @@ export default class GameScene extends Phaser.Scene {
       'level1',
       'level2',
       'level3',
+      'level4',
     ];
   }
 
@@ -40,12 +41,13 @@ export default class GameScene extends Phaser.Scene {
     const spawn = this.data.spawn ? (
       layer.getTileAtWorldXY(this.data.spawn.x, this.data.spawn.y)
     ) : (
-        layer.findByIndex(189)
-      );
+      layer.findByIndex(189)
+    );
     this.setSpawn(spawn);
   }
 
   gameOver() {
+    this.player.state.setState('dead');
     this.player.body.setVelocityY((this.physics.world.gravity.y * -1) / 2);
     this.physics.world.colliders.destroy();
     this.time.delayedCall(250, () => {
@@ -146,17 +148,19 @@ export default class GameScene extends Phaser.Scene {
     this.findSpawn(this.spawnLayer);
 
     this.goalLayer.setTileIndexCallback(59, (_, goal) => {
-      this.goalLayer.removeTileAt(goal.x, goal.y);
+      if (this.player.state.name !== 'dead') {
+        this.goalLayer.removeTileAt(goal.x, goal.y);
 
-      this.time.delayedCall(250, () => {
-        this.cameras.main.fade(250);
-      }, [], this);
+        this.time.delayedCall(250, () => {
+          this.cameras.main.fade(250);
+        }, [], this);
 
-      this.time.delayedCall(500, () => {
-        this.scene.restart({
-          level: this.level += 1,
-        });
-      }, this);
+        this.time.delayedCall(500, () => {
+          this.scene.restart({
+            level: this.level += 1,
+          });
+        }, this);
+      }
     }, [], this);
 
     this.input.keyboard.on('keydown_' + 'SPACE', () => {
