@@ -118,7 +118,7 @@ export default class GameScene extends Phaser.Scene {
       const spike = this.spikes.create(spikeObject.x, spikeObject.y - spikeObject.height, 'tilesheet_complete', 211)
         .setOrigin(0, 0);
       spike.flipY = spikeObject.flippedVertical;
-      spike.body.setSize(64, 32, true).setOffset(0, spike.flipY ? 0 : 32);
+      spike.body.setSize(48, 32, true).setOffset(8, spike.flipY ? 0 : 32);
     });
 
     mineObjects.forEach(mineObject => {
