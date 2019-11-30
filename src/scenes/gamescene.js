@@ -15,6 +15,8 @@ export default class GameScene extends Phaser.Scene {
       'level3',
       'level4',
       'level5',
+      'level6',
+      'level7',
     ];
   }
 
