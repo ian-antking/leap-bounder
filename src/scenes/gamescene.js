@@ -9,7 +9,7 @@ export default class GameScene extends Phaser.Scene {
     this.commands = [];
     this.level = 0;
     this.levels = [
-      'dev-map',
+      'level0',
       'level1',
     ];
   }
