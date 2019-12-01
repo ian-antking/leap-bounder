@@ -1,10 +1,12 @@
-# Phaser 3 Webpack Project Template
+# Leap Bounder
 
-A Phaser 3 Project Template
+A Phaser 3 game for the 2019 Github Game Jam.
 
 ### Requirements
 
-We need [Node.js](https://nodejs.org) to install and run scripts.
+You will need [Node.js](https://nodejs.org) to install and run scripts.
+
+Alternately play it [here.](https://leap-bounder.herokuapp.com/)
 
 ## Install and run
 
